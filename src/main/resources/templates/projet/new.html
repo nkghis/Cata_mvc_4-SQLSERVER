@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{layout :: head}">
+
+</head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+<br>
+
+
+
+<div class="container" >
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <h5><strong>Nouveau Projet.</strong></h5>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="card-body">
+                    <form th:action="@{/admin/projets/save}" th:object="${monprojet}"  method="post">
+                        <!-- Nom projet Form Input -->
+                        <div  class="form-group row">
+                            <label for="name" class="col-sm-4 col-form-label text-md-right"><strong>Nom</strong></label>
+
+                            <div class="col-md-6">
+
+                                <input id="name" type="text" class="form-control" th:field="*{projet_nom}" autofocus>
+                                <span th:if="${#fields.hasErrors('projet_nom')}" th:errors="*{projet_nom}"  th:class="help-block"></span>
+                            </div>
+                        </div>
+
+                        <!-- Client Form Input -->
+                        <div class="form-group row">
+                            <label for="idclient" class="col-sm-4 col-form-label text-md-right"><strong>Client</strong></label>
+
+                            <div class="col-md-6">
+                                <select  id="idclient" name="client" class="select-type form-control"  >
+                                    <option value="">-- Selectionner le Client --</option>
+                                    <option th:each="c:${clients}" th:value="${c.client_id}" th:text="${c.client_nom}"></option>
+                                </select>
+                                <span th:if="${#fields.hasErrors('client')}" th:errors="*{client}"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="contact" class="col-sm-4 col-form-label text-md-right"><strong></strong></label>
+
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary">Enregister</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--<script th:inline="javascript" >
+    /*<![CDATA[*/
+
+    var message = [[${myerror}]];
+
+
+    //alert(message);
+
+    /*]]>*/
+
+    if (message == 0)
+    {
+        $('#clientModal').modal('show');
+        //document.getElementById("clientModal").showModal();
+    }
+
+
+</script>-->
+
+</body>
+</html>

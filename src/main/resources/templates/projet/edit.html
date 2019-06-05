@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}">
+
+</head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+<br>
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3><span class="badge badge-info">Editer</span> <span th:text ="${projet.projet_nom}" class="badge badge-secondary"></span></h3>
+                </div>
+
+                <div class="col-md-4 page-action text-right">
+                    <a th:href="@{/admin/projets}" class="btn btn-default btn-sm"> <i class="material-icons">backspace</i> Retour</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-content">
+                                <form th:action="@{/admin/projets/save}" method="post">
+                                    <input type="hidden" th:field="${projet.projet_id}">
+
+                                    <!-- Nom Projet Form Input -->
+                                    <div class="form-group row">
+                                        <label for="project" class="col-sm-4 col-form-label text-md-right"><strong>Nom</strong></label>
+
+                                        <div class="col-md-6">
+                                            <input id="project" type="text" class="form-control" th:field="${projet.projet_nom}"  autofocus>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Client Form Input -->
+                                    <div class="form-group row">
+                                        <label for="idclient" class="col-sm-4 col-form-label text-md-right"><strong>Client</strong></label>
+
+                                        <div class="col-md-6">
+                                            <select th:field="${projet.client}" id="idclient" name="client" class="select-type form-control"  >
+                                                <option value="">-- Selectionner le Client --</option>
+                                                <option th:each="c:${clients}" th:value="${c.client_id}" th:text="${c.client_nom}" th:selected="${c.client_id == projet.client}"></option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="contact" class="col-sm-4 col-form-label text-md-right"><strong></strong></label>
+                                        <div class="col-md-6">
+                                            <button type="submit" class="btn btn-primary">Enregister</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

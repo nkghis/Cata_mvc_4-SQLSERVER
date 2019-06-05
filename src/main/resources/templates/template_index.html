@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}">
+
+</head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+<br>
+
+<!--<div class="modal fade" id="clientModal" tabindex="-1" role="dialog" aria-labelledby="roleModalLabel">
+    <div class="modal-dialog" role="document">
+        <form th:action="@{save}" method="post">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="clientModalLabel">Nouveau Client</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                </div>
+                <div class="modal-body">
+                    &lt;!&ndash; Nom Client Form Input &ndash;&gt;
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-4 col-form-label text-md-right"><strong>Nom</strong></label>
+
+                        <div class="col-md-6">
+                            <input id="name" type="text" class="form-control" name="name"   autofocus>
+                        </div>
+                    </div>
+
+                    &lt;!&ndash; Contact Form Input &ndash;&gt;
+                    <div class="form-group row">
+                        <label for="contact" class="col-sm-4 col-form-label text-md-right"><strong>Contact</strong></label>
+
+                        <div class="col-md-6">
+                            <input id="contact" type="text" class="form-control" name="name"   autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    &lt;!&ndash; Submit Form Button &ndash;&gt;
+                    <button type="button" class="btn btn-primary">Enregister</button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>-->
+
+<div class="container" >
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <h5><strong>Liste des clients.</strong></h5>
+                        </div>
+
+                        <div class="col-md-4 page-action text-right">
+                            <a href="#" class="btn btn-sm btn-success pull-right" data-toggle="modal" data-target="#clientModal"> <i class="material-icons">open_in_new</i> <b>Nouveau Client</b></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="card-body">
+                    <div>
+                        <div class="table-responsive">
+                            <table class="table table-sm" id="index-client">
+                                <thead>
+                                <tr>
+                                    <!--<th class="text-center">Id</th>
+                                    <th class="text-center">Nom</th>
+                                    <th class="text-center">Supprimer</th>-->
+                                    <!--<th class="text-center">Supprimer</th>-->
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <!--<tr th:each = "c:${listClients}">
+                                    <td th:text = "${c.client_id}" class="text-center"></td>
+                                    <td th:text = "${c.client_nom}" class="text-center"></td>
+                                    &lt;!&ndash;<td><a th:href="@{editClient(id=${c.client_id})}"></a></td>&ndash;&gt;
+                                    <td><a th:href="@{clients/delete(id=${c.client_id})}">Supprimer</a></td>-->
+
+                                </tr>
+
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

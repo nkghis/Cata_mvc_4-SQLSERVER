@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{layout :: head}">
+
+</head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+<br>
+
+
+
+<div class="container" >
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <h5><strong>Nouveau Produit.</strong></h5>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="card-body">
+                    <form th:action="@{/admin/produits/save}" th:object="${monproduit}"  method="post">
+                        <!-- Nom Client Form Input -->
+                        <div  class="form-group row">
+                            <label th:for="produit_nom" class="col-sm-4 col-form-label text-md-right"><strong>Nom</strong></label>
+
+                            <div class="col-md-6">
+
+                                <input  class="form-control" th:field="*{produit_nom}"  >
+                                <span th:errors="*{produit_nom}"></span>
+                                <!--<span>test</span>-->
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="test" class="col-sm-4 col-form-label text-md-right"><strong></strong></label>
+
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary">Enregister</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

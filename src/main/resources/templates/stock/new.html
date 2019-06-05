@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{layout :: head}">
+
+</head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+<br>
+
+
+
+<div class="container" >
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <h5><strong>Nouveau Stock.</strong></h5>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="card-body">
+                    <form th:action="@{/admin/stocks/save}"  method="post">
+
+                        <!-- Projet Form Input -->
+                        <div class="form-group row">
+                            <label for="idprojet" class="col-sm-4 col-form-label text-md-right"><strong>Projet</strong></label>
+
+                            <div class="col-md-6">
+                                <select  id="idprojet" name="projet" class="select-type form-control"  >
+                                    <option value="">-- Selectionner le projet --</option>
+                                    <option th:each="c:${projets}" th:value="${c.projet_id}" th:text="${c.projet_nom}"></option>
+                                </select>
+                                <!--<span th:if="${#fields.hasErrors('projets')}" th:errors="*{projets}"></span>-->
+                            </div>
+                        </div>
+
+                        <!-- produit Form Input -->
+                        <div class="form-group row">
+                            <label for="idproduit" class="col-sm-4 col-form-label text-md-right"><strong>Produit</strong></label>
+
+                            <div class="col-md-6">
+                                <select  id="idproduit" name="produit" class="select-type form-control"  >
+                                    <option value="">-- Selectionner le produit --</option>
+                                    <option th:each="c:${produits}" th:value="${c.produit_id}" th:text="${c.produit_nom}"></option>
+                                </select>
+                                <!--<span th:if="${#fields.hasErrors('produits')}" th:errors="*{produits}"></span>-->
+                            </div>
+                        </div>
+
+                        <!-- Quantité Form Input -->
+                        <div  class="form-group row">
+                            <label for="quantite" class="col-sm-4 col-form-label text-md-right"><strong>Quantité</strong></label>
+
+                            <div class="col-md-6">
+
+                                <input id="quantite" type="number" min="1" class="form-control" name="quantite"  autofocus>
+                                <!--<span th:if="${#fields.hasErrors('projet_nom')}" th:errors="*{projet_nom}"  th:class="help-block"></span>-->
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="contact" class="col-sm-4 col-form-label text-md-right"><strong></strong></label>
+
+                            <div class="col-md-6">
+                                <button id="contact" type="submit" class="btn btn-primary">Enregister</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{layout :: head}">
+
+</head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+<br>
+
+
+
+<div class="container" >
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <h5><strong>Nouveau client.</strong></h5>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+                <!--<div class="card-body">
+                    <form th:action="@{/admin/clients/save}" th:object="${monclient}"  method="post">
+                        &lt;!&ndash; Nom Client Form Input &ndash;&gt;
+                        <div  class="form-group row">
+                            <label for="name" class="col-sm-4 col-form-label text-md-right"><strong>Nom</strong></label>
+
+                            <div class="col-md-6">
+
+                                <input id="name" type="text" class="form-control" th:field="*{client_nom}" autofocus>
+                                <span th:if="${#fields.hasErrors('client_nom')}" th:errors=""  th:class="help-block"></span>
+                            </div>
+                        </div>
+
+                        &lt;!&ndash; Contact Form Input &ndash;&gt;
+                        <div class="form-group row">
+                            <label for="contact" class="col-sm-4 col-form-label text-md-right"><strong>Contact</strong></label>
+
+                            <div class="col-md-6">
+                                <input id="contact" type="text" class="form-control" name="contact"   autofocus>
+                                <span th:if="${#fields.hasErrors('contact')}" th:errors="*{contact}"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="contact" class="col-sm-4 col-form-label text-md-right"><strong></strong></label>
+
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary">Enregister</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>-->
+
+                <div class="card-body">
+                    <form th:action="@{/admin/clients/save}" th:object="${monclient}"  method="post">
+                        <!-- Nom Client Form Input -->
+                        <div  class="form-group row">
+                            <label th:for="client_nom" class="col-sm-4 col-form-label text-md-right"><strong>Nom</strong></label>
+
+                            <div class="col-md-6">
+
+                                <input  class="form-control" th:field="*{client_nom}"  >
+                                <span th:errors="*{client_nom}"></span>
+                                <!--<span>test</span>-->
+                            </div>
+                        </div>
+
+                        <!-- Contact Form Input -->
+                        <div class="form-group row">
+                            <label th:for="contact" class="col-sm-4 col-form-label text-md-right"><strong>Contact</strong></label>
+
+                            <div class="col-md-6">
+                                <input class="form-control" th:field="*{contact}" >
+                                <span th:errors="*{contact}" class="error"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="test" class="col-sm-4 col-form-label text-md-right"><strong></strong></label>
+
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary">Enregister</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--<script th:inline="javascript" >
+    /*<![CDATA[*/
+
+    var message = [[${myerror}]];
+
+
+    //alert(message);
+
+    /*]]>*/
+
+    if (message == 0)
+    {
+        $('#clientModal').modal('show');
+        //document.getElementById("clientModal").showModal();
+    }
+
+
+</script>-->
+
+</body>
+</html>

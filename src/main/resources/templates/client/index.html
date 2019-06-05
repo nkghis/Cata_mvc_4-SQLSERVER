@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{layout :: head}">
+
+</head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+<br>
+
+<!--<div class="modal fade" id="clientModal" tabindex="-1" role="dialog" aria-labelledby="roleModalLabel">
+    <div class="modal-dialog" role="document">
+        <form th:action="@{clients/save}" th:object="${monclient}"  method="post">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="clientModalLabel">Nouveau Client</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                </div>
+                <div class="modal-body">
+                    &lt;!&ndash; Nom Client Form Input &ndash;&gt;
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-4 col-form-label text-md-right"><strong>Nom</strong></label>
+
+                        <div class="col-md-6">
+
+                            <input id="name" type="text" class="form-control"  th:field="*{client_nom}"  autofocus>
+                            &lt;!&ndash;<span th:errors="${client.client_nom}"></span>&ndash;&gt;
+                            <span th:if="${#fields.hasErrors('client_nom')}" th:errors="*{client_nom}"></span>
+                        </div>
+                    </div>
+
+                    &lt;!&ndash; Contact Form Input &ndash;&gt;
+                    <div class="form-group row">
+                        <label for="contact" class="col-sm-4 col-form-label text-md-right"><strong>Contact</strong></label>
+
+                        <div class="col-md-6">
+                            <input id="contact" type="text" class="form-control" name="contact"   autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    &lt;!&ndash; Submit Form Button &ndash;&gt;
+                    <button type="submit" class="btn btn-primary">Enregister</button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>-->
+
+<div class="container" >
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <h5><strong>Liste des clients.</strong></h5>
+                        </div>
+
+                        <div class="col-md-4 page-action text-right">
+                            <a th:href="@{/admin/clients/new}" class="btn btn-sm btn-success pull-right"> <i class="material-icons">open_in_new</i> <b>Nouveau Client</b></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                    <div class="card-body">
+                        <div>
+                            <div class="table-responsive">
+                                <table class="table table-sm" id="index-client">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-center">Id</th>
+                                        <th class="text-center">Nom</th>
+                                        <th class="text-center">Editer</th>
+                                        <th class="text-center">Supprimer</th>
+
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr th:each = "c:${listClients}">
+                                        <td th:text = "${c.client_id}" class="text-center"></td>
+                                        <td th:text = "${c.client_nom}" class="text-center"></td>
+                                        <td class="text-center"><a th:href="@{/admin/clients/edit/} + ${c.client_id}" class="btn btn-primary btn-sm" ><i class="material-icons">edit</i>Editer</a></td>
+                                        <td class="text-center"><a onclick="return confirm('Êtes vous sûre !!!')"  th:href="@{clients/delete/} + ${c.client_id}" class="btn btn-danger btn-sm"><i class="material-icons">delete_forever</i>Supprimer</a></td>
+
+
+                                    </tr>
+
+                                    </tbody>
+                                    <tfoot>
+
+                                    </tfoot>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script th:inline="javascript" >
+    /*<![CDATA[*/
+
+    var message = [[${myerror}]];
+
+
+    //alert(message);
+
+    /*]]>*/
+
+    if (message == 0)
+    {
+        $('#clientModal').modal('show');
+        //document.getElementById("clientModal").showModal();
+    }
+
+
+</script>
+
+</body>
+</html>

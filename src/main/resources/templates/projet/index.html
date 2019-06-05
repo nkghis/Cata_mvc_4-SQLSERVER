@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}">
+
+</head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+<br>
+
+
+<div class="container" >
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <h5><strong>Liste des Projets.</strong></h5>
+                        </div>
+
+                        <div class="col-md-4 page-action text-right">
+                            <a th:href="@{/admin/projets/new}" class="btn btn-sm btn-success pull-right" > <i class="material-icons">open_in_new</i> <b>Nouveau Projet</b></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="card-body">
+                    <div>
+                        <div class="table-responsive">
+                            <table class="table table-sm" id="index-client">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">Id</th>
+                                    <th class="text-center">Nom project</th>
+                                    <th class="text-center">Client</th>
+                                    <th class="text-center">Editer</th>
+                                    <th class="text-center">Supprimer</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <tr th:each = "c:${listprojets}">
+                                    <td th:text = "${c.projet_id}" class="text-center"></td>
+                                    <td th:text = "${c.projet_nom}" class="text-center"></td>
+                                    <td th:text = "${c.client.client_nom}" class="text-center"></td>
+                                    <td class="text-center"><a th:href="@{/admin/projets/edit/} + ${c.projet_id}" class="btn btn-primary btn-sm" ><i class="material-icons">edit</i>Editer</a></td>
+                                    <td class="text-center"><a onclick="return confirm('Êtes vous sûre !!!')"  th:href="@{/admin/projets/delete/} + ${c.projet_id}" class="btn btn-danger btn-sm"><i class="material-icons">delete_forever</i>Supprimer</a></td>
+
+                                </tr>
+
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

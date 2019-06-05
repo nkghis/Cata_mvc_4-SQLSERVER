@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="head">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- CSRF Token
+    <meta name="csrf-token" content="{{ csrf_token() }}"> -->
+
+    <title>APP NAME</title>
+
+    <!-- Scripts -->
+
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+   <!-- <script  src="../static/js/jquery.js" th:src="@{/js/jquery.js}" defer></script>-->
+   	<script  src="../static/js/app.js" th:src="@{/js/app.js}" defer></script>
+   
+	 
+    <!-- Fonts -->
+    
+	
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link rel = "stylesheet" type = "text/css" href = "../static/css/app.css" th:href="@{/css/app.css}"/>
+    <link rel = "stylesheet" type = "text/css" href = "../static/css/mystyle.css" th:href="@{/css/mystyle.css}"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+
+    <style>
+        .page-break {
+            page-break-after: always;
+        }
+    </style>
+	
+</head>
+<body>
+	<div th:fragment="header">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+            <div class="container">
+                <a th:href="@{/}" class="navbar-brand" >
+                    STOCK-CONTROL
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-link">
+                            <a th:href ="@{/admin/clients}">
+                                <i class="material-icons">account_circle</i> <span>Client</span></a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a th:href ="@{/admin/projets}">
+                                <i class="material-icons">accessible</i> <span>Projet</span></a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a th:href ="@{/admin/stocks/}">
+                                <i class="material-icons">account_balance</i> <span>Stock</span></a>
+                        </li>
+
+                      <!--  <li class="nav-link">
+                            <a th:href ="@{/admin/form}">
+                                <i class="material-icons">domain</i> <span>Conditionnement</span></a>
+                        </li>-->
+
+                        <li class="nav-link">
+                            <a th:href ="@{/admin/produits}">
+                                <i class="material-icons">shopping_cart</i> <span>Produit</span></a>
+                        </li>
+
+                        <!--<li class="nav-link">
+                            <a th:href ="@{/admin/form}">
+                                <i class="material-icons">compare_arrows</i> <span>Opération</span></a>
+                        </li>-->
+
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    [[${#httpServletRequest.remoteUser}]] <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a th:href="@{/login?logout}" class="dropdown-item" >
+                                        Déconnexion
+                                    </a>
+
+                                    <!-- <form id="logout-form" th:action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form> -->
+                                </div>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	</div>
+	
+
+	<div>
+	
+	</div>
+	<div th:fragment="footer" class="navbar-fixed-botton">
+		<hr/>
+		<div class="container">
+			<small>
+				Copyright @2019
+			</small>
+		</div>
+	</div>
+
+</body>
+</html>
